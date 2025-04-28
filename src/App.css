@@ -75,7 +75,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-between; */
-  align-items: center;
+  /* align-items: center; */
   background-color: #0f0f0f;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -136,6 +136,7 @@ body {
 
 .download-btn {
   width: 50%;
+  height: 50px;
   padding: 10px 20px;
   background-color: #5bb4ff;
   border: none;
@@ -146,4 +147,25 @@ body {
 
 .download-btn:hover {
   background-color: #5bb4ff;
+}
+
+
+@media screen and (max-width: 850px) {
+  .video-item {
+    max-width: calc(50% - 10px);
+  }
+
+  .App {
+        padding: 00px;
+    }
+
+    .App-header{
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+
+    .video-list{
+      padding: 0 10px;
+    }
+  
 }
