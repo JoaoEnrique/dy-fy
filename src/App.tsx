@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css'; // Arquivo de estilos
 import { errorMessage } from './utils/messages';
-import { BACK_OR_YOUTUBE, BACKEND_URL, YOUTUBE_API_KEY } from './utils/vars';
+import { BACK_OR_YOUTUBE, BACKEND_DOWNLOAD_URL, BACKEND_SEARCH_URL, YOUTUBE_API_KEY } from './utils/vars';
 import { Video } from './utils/types';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const handleSearch = async () => {
-    const BASE_URL = BACK_OR_YOUTUBE === "back" ? `${BACKEND_URL}/search?query=${query}` : 'https://www.googleapis.com/youtube/v3/search';
+    const BASE_URL = BACK_OR_YOUTUBE === "back" ? `${BACKEND_SEARCH_URL}/search?query=${query}` : 'https://www.googleapis.com/youtube/v3/search';
 
     if (!query) return;
     setLoading(true);
@@ -68,7 +68,7 @@ function App() {
       setLoadingDownloadAudio(videoId)
     
     try {
-      const response = await axios.get(`${BACKEND_URL}/download?url=${encodeURIComponent(videoUrl)}&format=${format}`, {
+      const response = await axios.get(`${BACKEND_DOWNLOAD_URL}/download?url=${encodeURIComponent(videoUrl)}&format=${format}`, {
         responseType: 'blob'
       });
   
