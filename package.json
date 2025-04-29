@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only main.ts"
+    "dev": "ts-node-dev --respawn --transpile-only main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js"
   },
   "dependencies": {
     "@distube/ytdl-core": "^4.16.9",
