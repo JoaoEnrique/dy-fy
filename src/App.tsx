@@ -21,7 +21,10 @@ function App() {
     setError('');
 
     // Se detectar um link direto do YouTube
-    if (query.includes('https://www.youtube.com/watch') || query.includes('https://www.youtube.com/watch')) {
+    if (
+      query.includes('https://www.youtube.com/watch') || query.includes('https://www.youtube.com/watch') ||
+      query.includes('http://www.youtube.com/watch') || query.includes('http://www.youtube.com/watch')
+    ) {
       const url = new URL(query);
       const videoId = url.searchParams.get('v');
       if (videoId) {
