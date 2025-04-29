@@ -66,6 +66,7 @@ function App() {
       setLoadingDownloadVideo(videoId)
     else
       setLoadingDownloadAudio(videoId)
+    console.log(BACKEND_DOWNLOAD_URL);
     
     try {
       const response = await axios.get(`${BACKEND_DOWNLOAD_URL}/download?url=${encodeURIComponent(videoUrl)}&format=${format}`, {
