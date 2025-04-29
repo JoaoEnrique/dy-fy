@@ -75,13 +75,13 @@ function App() {
         responseType: 'blob'
       });
   
-      const blob = new Blob([response.data], { type: 'video/mp4' });
-      // const blob = new Blob([response.data], { type: format === 'audio' ? 'audio/mpeg' : 'video/mp4' });
+      // const blob = new Blob([response.data], { type: 'video/mp4' });
+      const blob = new Blob([response.data], { type: format === 'audio' ? 'audio/mpeg' : 'video/mp4' });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      // a.download = format === 'audio' ? 'audio.mp3' : 'video.mp4';
-      a.download = `${title}.mp4`;
+      a.download = format === 'audio' ? 'audio.mp3' : `${title}.mp4`;
+      // a.download = `${title}.mp4`;
       document.body.appendChild(a);
       a.click();
       a.remove();
