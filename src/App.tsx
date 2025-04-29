@@ -21,7 +21,7 @@ function App() {
     setError('');
 
     // Se detectar um link direto do YouTube
-    if (query.includes('https://www.youtube.com/watch')) {
+    if (query.includes('https://www.youtube.com/watch') || query.includes('https://www.youtube.com/watch')) {
       const url = new URL(query);
       const videoId = url.searchParams.get('v');
       if (videoId) {
@@ -125,7 +125,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Dy Fy</h1>
+        {/* <h1>Dy Fy</h1> */}
+        <h1>
+          <img src="/img/icon.png" alt='Logo' className="icon" />
+
+        </h1>
         <div className="search-bar">
           <form onSubmit={(e) => e.preventDefault()}>
             <input

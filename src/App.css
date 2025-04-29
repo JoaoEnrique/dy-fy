@@ -6,6 +6,12 @@
   color: #fff;
 }
 
+.icon{
+  height: 150px;
+  margin-top: -20px;
+  margin-bottom: -30px;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #0f0f0f;
@@ -14,14 +20,15 @@ body {
 
 .App {
   text-align: center;
-  padding: 20px;
+  padding: 0 0 20px 0;
 }
 
 .App-header {
   background-color: #5bb4ff;
   color: white;
   padding: 20px 0;
-  border-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .App-header h1 {
@@ -41,11 +48,14 @@ body {
   margin-right: 10px;
   background-color: #0f0f0f;
   color: #fff;
+  height: 40px;
 }
 
 .search-bar button {
+  height: 40px;
   padding: 10px 20px;
-  background-color: #5bb4ff;
+  background-color: #0f0f0f;
+  border: 1px solid #0f0f0f;
   color: white;
   border: none;
   border-radius: 4px;
@@ -53,7 +63,7 @@ body {
 }
 
 .search-bar button:disabled {
-  background-color: #bbb;
+  opacity: .5;
 }
 
 .error-message {
@@ -63,6 +73,7 @@ body {
 
 .video-list {
   margin-top: 40px;
+  padding: 20px 20px;
 }
 
 .video-list ul {
@@ -155,6 +166,19 @@ body {
     max-width: calc(50% - 10px);
   }
 
+  .video-item {
+    max-width: calc(100%);
+  }
+
+  .App-header{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  form{
+    display: flex;
+  }
+
   .App {
         padding: 00px;
     }
@@ -167,5 +191,25 @@ body {
     .video-list{
       padding: 0 10px;
     }
-  
+ 
+    .icon{
+      height: 100px;
+    }
+
+    .video-list ul{
+      justify-content: center;
+      gap: 0;
+    }
+    
+}
+
+@media screen and (max-width: 485px) {
+
+
+    .icon{
+      height: 80px;
+      margin-top: -20px;
+      margin-bottom: -30px;
+    }
+    
 }
