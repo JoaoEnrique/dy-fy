@@ -97,6 +97,7 @@ function App() {
       setQuery(initialQuery);
       handleSearch(); // já faz a busca automática
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
