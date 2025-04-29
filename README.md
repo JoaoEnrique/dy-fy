@@ -7,7 +7,11 @@ Hospedado na vercel: https://dy-fy.vercel.app
 
 Para baixar os vídeos foi utilizado uma API não oficial do YouTube (@distube/ytdl-core)
 
+
 ![image](https://github.com/user-attachments/assets/c9eaa1d3-8d5b-460c-b1b1-9ee858bf8c4c)
+
+## Problema encontrado
+APi do @distube/ytdl-core não baixa todos os vídeos do YouTube e o Python para pesquisa de vídeos demora 1 minuto para retornar os dados, portanto existem dois backend, um em node para a a pesquisa rapída e o outro em python que demora retornar os dados, mas baixa corretamente os vídeos 
 
 ## Tecnologias
 - React JS
