@@ -1,6 +1,8 @@
 # Frontend em Dy Fy
 Sistema para pesquisar e baixar vídeos do YouTube utilizando React e Node.
 
+Hospedado na vercel: https://dy-fy.vercel.app
+
 É possível pesquisar pela api do YouTube (Precisa de uma chave) ou pela API não oficial yt-search.
 
 Para baixar os vídeos foi utilizado uma API não oficial do YouTube (@distube/ytdl-core)
