@@ -6,7 +6,7 @@
   color: #fff;
 }
 
-.icon{
+.icon {
   height: 150px;
   margin-top: -20px;
   margin-bottom: -30px;
@@ -97,7 +97,7 @@ body {
   color: #fff;
 }
 
-.video-thumbnail{
+.video-thumbnail {
   width: 100%;
 }
 
@@ -139,7 +139,7 @@ body {
   text-decoration: underline;
 }
 
-.container-btn{
+.container-btn {
   gap: 10px;
   display: flex;
   width: 100%;
@@ -170,46 +170,49 @@ body {
     max-width: calc(100%);
   }
 
-  .App-header{
+  .App-header {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  form{
+  form {
     display: flex;
   }
 
   .App {
-        padding: 00px;
-    }
+    padding: 00px;
+  }
 
-    .App-header{
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-    }
+  .App-header {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
 
-    .video-list{
-      padding: 0 10px;
-    }
- 
-    .icon{
-      height: 100px;
-    }
+  .video-list {
+    padding: 0 10px;
+  }
 
-    .video-list ul{
-      justify-content: center;
-      gap: 0;
-    }
-    
+  .icon {
+    height: 100px;
+  }
+
+  .video-list ul {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .download-btn {
+    width: 50%;
+    height: 40px;
+  }
+
 }
 
 @media screen and (max-width: 485px) {
+  .icon {
+    height: 80px;
+    margin-top: -20px;
+    margin-bottom: -30px;
+  }
 
-
-    .icon{
-      height: 80px;
-      margin-top: -20px;
-      margin-bottom: -30px;
-    }
-    
 }
