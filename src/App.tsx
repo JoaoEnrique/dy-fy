@@ -9,9 +9,10 @@ function App() {
   const [query, setQuery] = useState('');
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingDownloadVideo, setLoadingDownloadVideo] = useState<string | null>(null);
+  const [loadingDownloadAudio, setLoadingDownloadAudio] = useState<string | null>(null);
   const [error, setError] = useState('');
   const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null);
-
 
   const handleSearch = async () => {
     const BASE_URL = BACK_OR_YOUTUBE === "back" ? `${BACKEND_URL}/search?query=${query}` : 'https://www.googleapis.com/youtube/v3/search';
@@ -63,6 +64,11 @@ function App() {
 
   const handleDownload = async (videoId: string, format = 'video') => {
     const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    if(format === "video")
+      setLoadingDownloadVideo(videoId)
+    else
+      setLoadingDownloadAudio(videoId)
     
     try {
       const response = await axios.get(`${BACKEND_URL}/download?url=${encodeURIComponent(videoUrl)}&format=${format}`, {
@@ -86,6 +92,10 @@ function App() {
       setError(messageError);
       console.error(err);
       console.error(messageError);
+    }
+    finally{
+      setLoadingDownloadVideo(null)
+      setLoadingDownloadAudio(null)
     }
   };
 
@@ -144,7 +154,7 @@ function App() {
               placeholder="Link para baixar ou pesquise"
             />
             <button onClick={handleSearch} disabled={loading}>
-              {loading ? 'Carregando...' : 'Pesquisar'}
+              {loading ? <span className="spinner"></span> : 'Pesquisar'}
             </button>
 
           </form>
@@ -173,12 +183,16 @@ function App() {
                  
                 </div>
                 <div className='container-btn'>
-                  <button onClick={() => handleDownload(video.id.videoId)} className="download-btn">
-                      Baixar Vídeo
+                    <button disabled={!!loadingDownloadVideo || !!loadingDownloadAudio} onClick={() => handleDownload(video.id.videoId)} className="download-btn">
+                      {loadingDownloadVideo === video.id.videoId ? (
+                        <span className="spinner"></span>
+                      ) : "Baixar vídeo"}
                     </button>
 
-                    <button onClick={() => handleDownload(video.id.videoId, "audio")} className="download-btn">
-                      Baixar Audio
+                    <button disabled={!!loadingDownloadVideo || !!loadingDownloadAudio} onClick={() => handleDownload(video.id.videoId, "audio")} className="download-btn">
+                      {loadingDownloadAudio === video.id.videoId ? (
+                        <span className="spinner"></span>
+                      ) : "Baixar audio"}
                     </button>
                  </div>
               </li>

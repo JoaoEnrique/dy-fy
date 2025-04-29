@@ -161,6 +161,29 @@ body {
 }
 
 
+.download-btn:disabled {
+  opacity: .5;
+}
+
+.spinner {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border-left-color: #fff;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
 @media screen and (max-width: 850px) {
   .video-item {
     max-width: calc(50% - 10px);
