@@ -62,7 +62,7 @@ function App() {
     }
   };
 
-  const handleDownload = async (videoId: string, format = 'video') => {
+  const handleDownload = async (videoId: string, title = 'video', format = 'video') => {
     const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
     if(format === "video")
@@ -81,7 +81,7 @@ function App() {
       const a = document.createElement('a');
       a.href = url;
       // a.download = format === 'audio' ? 'audio.mp3' : 'video.mp4';
-      a.download = 'video.mp4';
+      a.download = `${title}.mp4`;
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -183,13 +183,13 @@ function App() {
                  
                 </div>
                 <div className='container-btn'>
-                    <button disabled={!!loadingDownloadVideo || !!loadingDownloadAudio} onClick={() => handleDownload(video.id.videoId)} className="download-btn">
+                    <button disabled={!!loadingDownloadVideo || !!loadingDownloadAudio} onClick={() => handleDownload(video.id.videoId, video.snippet.title)} className="download-btn">
                       {loadingDownloadVideo === video.id.videoId ? (
                         <span className="spinner"></span>
                       ) : "Baixar vídeo"}
                     </button>
 
-                    <button disabled={!!loadingDownloadVideo || !!loadingDownloadAudio} onClick={() => handleDownload(video.id.videoId, "audio")} className="download-btn">
+                    <button disabled={!!loadingDownloadVideo || !!loadingDownloadAudio} onClick={() => handleDownload(video.id.videoId, video.snippet.title, "audio")} className="download-btn">
                       {loadingDownloadAudio === video.id.videoId ? (
                         <span className="spinner"></span>
                       ) : "Baixar audio"}

@@ -64,6 +64,7 @@ body {
 
 .search-bar button:disabled {
   opacity: .5;
+  cursor: default!important;
 }
 
 .error-message {
