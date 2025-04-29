@@ -14,8 +14,21 @@ Para baixar os vídeos foi utilizado uma API não oficial do YouTube (@distube/y
 APi do @distube/ytdl-core não baixa todos os vídeos do YouTube e o Python para pesquisa de vídeos demora 1 minuto para retornar os dados, portanto existem dois backend, um em node para a a pesquisa rapída e o outro em python que demora retornar os dados, mas baixa corretamente os vídeos 
 
 ## Tecnologias
+
+### front
 - React JS
 - Axios
+
+### back em node
+- yt-search
+- Express
+
+### back em Python
+- FastAPI
+- yt_dlp
+
+### APP mobile
+- React Native
 
 ## Instalação
 Baixe o projeto
