@@ -26,7 +26,8 @@ app.get("/search", async (req: Request, res: Response) => {
 
   if (cache.has(query)) {
     console.log("Retornando resultado do cache.");
-    // return res.json({ items: cache.get(query) });
+    res.json({ items: cache.get(query) });
+    return;
   }
 
   try {
