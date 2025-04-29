@@ -121,6 +121,7 @@ function App() {
     setDebounceTimeout(timeout);
 
     return () => clearTimeout(timeout);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
   
   
