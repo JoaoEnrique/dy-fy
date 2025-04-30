@@ -26,7 +26,7 @@ cache = {}
 
 @app.get("/")
 def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello World 2"}
 
 @app.get("/download")
 async def download(url: str, format: str = "video"):
