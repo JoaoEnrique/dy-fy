@@ -2,10 +2,10 @@ name: deploy.ia
 
 on:
   push:
-    branches: [main]
+    branches: [backend_python]
   
   pull_request:
-    branches: [main]
+    branches: [backend_python]
   
   workflow_dispatch:
 
