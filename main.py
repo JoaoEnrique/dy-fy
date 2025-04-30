@@ -26,7 +26,7 @@ cache = {}
 
 @app.get("/")
 def root():
-    return {"message": "Hello World 2"}
+    return {"message": "Hello World 3"}
 
 @app.get("/download")
 async def download(url: str, format: str = "video"):
@@ -43,7 +43,6 @@ async def download(url: str, format: str = "video"):
         # Comando yt-dlp para salvar no stdout
         command = [
             "yt-dlp",
-            "--ffmpeg-location", "./bin",  # aponta para a pasta com o binário
             "-f", yt_format,
             "-o", "-",  # output para stdout
             decoded_url
