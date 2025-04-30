@@ -12,3 +12,11 @@ mv ffmpeg-*-amd64-static/ffprobe bin/
 
 # Dá permissão de execução
 chmod +x bin/ffmpeg bin/ffprobe
+
+pkill -f uvicorn
+
+cd /var/www/dyfy/python/
+nohup ./env/bin/uvicorn main:app --host 127.0.0.1 --port 8002 > output.log 2>&1 &
+
+
+tail -f output.log

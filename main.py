@@ -26,7 +26,7 @@ cache = {}
 
 @app.get("/")
 def root():
-    return {"message": "Hello World 3"}
+    return {"message": "Hello World 1"}
 
 @app.get("/download")
 async def download(url: str, format: str = "video"):
@@ -42,6 +42,7 @@ async def download(url: str, format: str = "video"):
 
         # Comando yt-dlp para salvar no stdout
         command = [
+            "--cookies", "cookies.txt",
             "yt-dlp",
             "-f", yt_format,
             "-o", "-",  # output para stdout
