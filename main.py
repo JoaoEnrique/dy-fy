@@ -49,10 +49,15 @@ async def download(url: str, format: str = "video"):
         ]
 
         process = subprocess.Popen(command, stdout=subprocess.PIPE)
+        
+        if format == "video":
+            media_type="video/mp4",
+        else:
+            media_type="audio/mpeg",
 
         return StreamingResponse(
             process.stdout,
-            media_type="application/octet-stream",
+            media_type=media_type,
             headers={"Content-Disposition": f"attachment; filename=video.{extension}"}
         )
 
