@@ -43,21 +43,17 @@ async def download(url: str, format: str = "video"):
         # Comando yt-dlp para salvar no stdout
         command = [
             "yt-dlp",
+            "--ffmpeg-location", "./bin",  # aponta para a pasta com o binário
             "-f", yt_format,
             "-o", "-",  # output para stdout
             decoded_url
         ]
 
         process = subprocess.Popen(command, stdout=subprocess.PIPE)
-        
-        if format == "video":
-            media_type="video/mp4",
-        else:
-            media_type="audio/mpeg",
 
         return StreamingResponse(
             process.stdout,
-            media_type=media_type,
+            media_type="application/octet-stream",
             headers={"Content-Disposition": f"attachment; filename=video.{extension}"}
         )
 
